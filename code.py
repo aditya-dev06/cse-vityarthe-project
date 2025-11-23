@@ -2,15 +2,12 @@ import time
 
 class HospitalManager:
     def __init__(self):
-        # We use a dictionary to store patients for fast lookups
-        # Format: {ID: {'name': 'Name', 'age': 30, 'disease': 'Flu'}}
         self.patients = {}
-
     def admit_patient(self):
         print("\n--- Admit New Patient ---")
         p_id = input("Enter Patient ID (unique): ")
         
-        # Check if ID already exists
+        # Check if ID already exist or not
         if p_id in self.patients:
             print("Error: A patient with this ID already exists.")
             return
@@ -20,7 +17,7 @@ class HospitalManager:
         disease = input("Enter Disease/Reason for visit: ")
         date = time.strftime("%d/%m/%Y") # Auto-generate today's date
 
-        # Saving the data
+        # Saving the data of all the patinents
         self.patients[p_id] = {
             'name': name,
             'age': age,
@@ -63,7 +60,7 @@ class HospitalManager:
         else:
             print("Error: Patient ID not found.")
 
-# --- Main Execution ---
+# Main Execution
 def main():
     system = HospitalManager()
     
